@@ -1,5 +1,4 @@
 const APIURL = "https://api.github.com/users/";
-
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
@@ -28,8 +27,8 @@ function createUserCard(user) {
                 <img class="avatar" src="${user.avatar_url}" alt="${user.name}" />
             </div>
             <div class="user-info">
-                <h2>${user.name}</h2>
-                <p>${user.bio}</p>
+                <h2>${user.name || user.login}</h2>
+                <p>${user.bio || ''}</p>
                 <ul class="info">
                     <li>${user.followers}<strong> Followers</strong></li>
                     <li>${user.following}<strong> Following</strong></li>
@@ -39,8 +38,8 @@ function createUserCard(user) {
             </div>
         </div>
     `;
-
   main.innerHTML = cardHTML;
+
 }
 
 function addReposToCard(repos) {
